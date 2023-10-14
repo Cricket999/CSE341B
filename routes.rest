@@ -1,10 +1,30 @@
 // Local Routes
 // GET Route
-GET http://localhost:3000/contacts/all
+GET http://localhost:3000/users
 
 // POST Route
 ###
-POST http://localhost:3000/contacts/add
+POST http://localhost:3000/users
+content-type: application/json
+
+{
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "johndoe@gmail.com",
+    "Address": "1 Test Street",
+    "City": "Portland",
+    "State": "Oregon",
+    "Country": "United States of America"
+}
+
+// Deployment Routes
+// GET Route
+###
+GET http://cse341-second-project.onrender.com/users
+
+// POST Route
+###
+POST http://cse341-second-project.onrender.com/users
 content-type: application/json
 
 {
