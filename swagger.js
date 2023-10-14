@@ -7,7 +7,7 @@ const doc = {
         description: 'CSE341 API'
     },
     host: 'cse341-second-project.onrender.com',
-    schemes: ['http', 'https']};
+    schemes: ['https']};
 
 const outputFile = './swagger.json'
 const endpointsFiles = ['./routes/index.js']

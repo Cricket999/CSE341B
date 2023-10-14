@@ -20,11 +20,11 @@ content-type: application/json
 // Deployment Routes
 // GET Route
 ###
-GET http://cse341-second-project.onrender.com/users
+GET https://cse341-second-project.onrender.com/users
 
 // POST Route
 ###
-POST http://cse341-second-project.onrender.com/users
+POST https://cse341-second-project.onrender.com/users
 content-type: application/json
 
 {
