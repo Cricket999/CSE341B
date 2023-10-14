@@ -1,0 +1,18 @@
+// Local Routes
+// GET Route
+GET http://localhost:3000/contacts/all
+
+// POST Route
+###
+POST http://localhost:3000/contacts/add
+content-type: application/json
+
+{
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "johndoe@gmail.com",
+    "Address": "1 Test Street",
+    "City": "Portland",
+    "State": "Oregon",
+    "Country": "United States of America"
+}
