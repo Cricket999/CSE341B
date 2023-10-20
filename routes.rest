@@ -11,11 +11,32 @@ content-type: application/json
     "firstName": "John",
     "lastName": "Doe",
     "email": "johndoe@gmail.com",
-    "Address": "1 Test Street",
-    "City": "Portland",
-    "State": "Oregon",
-    "Country": "United States of America"
+    "address": "1 Test Street",
+    "city": "Portland",
+    "state": "Oregon",
+    "country": "United States of America"
 }
+
+// PUT Route
+// Needs an ID
+###
+PUT http://localhost:3000/users/65320150d58ed4f5439d896a
+content-type: application/json
+
+{
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "janedoe@gmail.com",
+    "address": "2 Test Street",
+    "city": "Portland",
+    "state": "Oregon",
+    "country": "United States of America"
+}
+
+// DELETE Route
+// Needs an ID
+###
+DELETE http://localhost:3000/users/65320150d58ed4f5439d896a
 
 // Deployment Routes
 // GET Route
@@ -36,3 +57,24 @@ content-type: application/json
     "State": "Oregon",
     "Country": "United States of America"
 }
+
+// PUT Route
+// Needs an ID
+###
+PUT https://cse341-second-project.onrender.com/users/65320150d58ed4f5439d896a
+content-type: application/json
+
+{
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "janedoe@gmail.com",
+    "address": "2 Test Street",
+    "city": "Portland",
+    "state": "Oregon",
+    "country": "United States of America"
+}
+
+// DELETE Route
+// Needs an ID
+###
+DELETE https://cse341-second-project.onrender.com/users/65320150d58ed4f5439d896a

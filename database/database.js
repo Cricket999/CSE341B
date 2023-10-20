@@ -16,8 +16,35 @@ async function addUser(req, res) {
     await client.connect();
     result = await client.db("CSE341DB2").collection("Users").insertOne(req.body);
     final = JSON.stringify(result);
-    res.status(201)
+    res.status(201);
     return final;
 }
 
-module.exports = {getAllUsers, addUser}
+async function editUser(req, res) {
+    await client.connect();
+    query = {"_id" : new ObjectId(req.params.id)};
+    result = await client.db("CSE341DB2").collection("Users").findOneAndUpdate(query, 
+        {$set: {
+            "firstName": req.body.firstName,
+            "lastName": req.body.lastName,
+            "email": req.body.email,
+            "address": req.body.address,
+            "city": req.body.city,
+            "state": req.body.state,
+            "country": req.body.country
+        }});
+    final = JSON.stringify(result);
+    res.status(204);
+    return final;
+}
+
+async function deleteUser(req, res) {
+    await client.connect();
+    query = {"_id" : new ObjectId(req.params.id)};
+    result = await client.db("CSE341DB2").collection("Users").findOneAndDelete(query);
+    final = JSON.stringify(result);
+    res.status(200);
+    return final;
+}
+
+module.exports = {getAllUsers, addUser, editUser, deleteUser}
