@@ -5,11 +5,10 @@
     "title": "API",
     "description": "CSE341 API"
   },
-  "host": "localhost:3000",
+  "host": "cse341-second-project.onrender.com",
   "basePath": "/",
   "schemes": [
-    "https",
-    "http"
+    "https"
   ],
   "paths": {
     "/users/": {
