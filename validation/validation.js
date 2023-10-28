@@ -83,4 +83,33 @@ validate.checkIdValidate = (req, res, next) => {
     })
 }
 
+validate.colorValidationRules = () => {
+    return [
+        // Rules for color name
+        body('colorName')
+        .trim()
+        .isLength({ min: 1 })
+        .withMessage("Please provide a color name."),
+
+        // Rules for last name
+        body('hex')
+        .trim()
+        .isLength({ min: 6, max: 6 })
+        .withMessage("Please provide a valid 6-digit color hex.")
+    ]
+}
+
+validate.colorValidate = (req, res, next) => {
+    const errors = validationResult(req)
+    if (errors.isEmpty()) {
+        return next()
+    }
+    const extractedErrors = []
+    errors.array().map(err => extractedErrors.push(err.msg))
+
+    return res.status(400).json({
+        errors: extractedErrors
+    })
+}
+
 module.exports = validate

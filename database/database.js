@@ -47,4 +47,41 @@ async function deleteUser(req, res) {
     return final;
 }
 
-module.exports = {getAllUsers, addUser, editUser, deleteUser}
+async function getAllColors() {
+    await client.connect();
+    result = await client.db("CSE341DB2").collection("Colors").find().toArray();
+    final = JSON.stringify(result);
+    return final;
+}
+
+async function addColor(req, res) {
+    await client.connect();
+    result = await client.db("CSE341DB2").collection("Colors").insertOne(req.body);
+    final = JSON.stringify(result);
+    res.status(201);
+    return final;
+}
+
+async function editColor(req, res) {
+    await client.connect();
+    query = {"_id" : new ObjectId(req.params.id)};
+    result = await client.db("CSE341DB2").collection("Colors").findOneAndUpdate(query, 
+        {$set: {
+            "colorName": req.body.colorName,
+            "hex": req.body.hex
+        }});
+    final = JSON.stringify(result);
+    res.status(204);
+    return final;
+}
+
+async function deleteColor(req, res) {
+    await client.connect();
+    query = {"_id" : new ObjectId(req.params.id)};
+    result = await client.db("CSE341DB2").collection("Colors").findOneAndDelete(query);
+    final = JSON.stringify(result);
+    res.status(200);
+    return final;
+}
+
+module.exports = {getAllUsers, addUser, editUser, deleteUser, getAllColors, addColor, editColor, deleteColor}
