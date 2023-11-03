@@ -8,6 +8,11 @@ controller.getAll = async function(req, res){
     } catch (error) {
         res.status(500).json(error);
     }
+    /*  #swagger.responses[401] = {}
+        #swagger.security = [{
+        "oauth2":[]
+    }]
+    */
 };
 
 controller.addUser = async function(req, res){
@@ -23,7 +28,9 @@ controller.addUser = async function(req, res){
             $state: "Oregon",
             $country: "United States of America"
         }
-    } #swagger.responses[201] = {}
+    }
+    #swagger.responses[201] = {}
+    #swagger.responses[401] = {}
        */
     try {
         user = await client.addUser(req, res);
@@ -46,7 +53,9 @@ controller.editUser = async function(req, res){
             $state: "Oregon",
             $country: "United States of America"
         }
-    } #swagger.responses[204] = {}
+    }
+    #swagger.responses[204] = {}
+    #swagger.responses[401] = {}
        */
     try {
         user = await client.editUser(req, res);
@@ -57,6 +66,9 @@ controller.editUser = async function(req, res){
 };
 
 controller.deleteUser = async function(req, res){
+    /*
+    #swagger.responses[401] = {}
+    */
     try {
         user = await client.deleteUser(req, res)
         res.send(user)
