@@ -12,7 +12,7 @@ const doc = {
     securityDefinitions: {
         oauth2: {
             type: 'oauth2',
-            authorizationUrl: 'cse341-second-project.onrender.com/login',
+            authorizationUrl: 'https://cse341-second-project.onrender.com/login',
             flow: 'accessCode'
         }
     }
